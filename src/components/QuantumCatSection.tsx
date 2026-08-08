@@ -46,8 +46,8 @@ export default function QuantumCatSection() {
         <section
             ref={sectionRef}
             id="cat"
-            className="relative overflow-hidden"
-            style={{ minHeight: "92vh", backgroundColor: CAT_BG }}
+            className="relative overflow-hidden min-h-0 lg:min-h-[92vh]"
+            style={{ backgroundColor: CAT_BG }}
         >
             {/* Quantum grid overlay */}
             <div className="absolute inset-0 quantum-grid opacity-35 pointer-events-none" />
@@ -60,15 +60,15 @@ export default function QuantumCatSection() {
 
             {/* Ambient purple/teal glows */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-        w-[700px] h-[380px] bg-violet-700/10 rounded-full blur-[110px] pointer-events-none" />
+        w-full max-w-[700px] h-[200px] sm:h-[380px] bg-violet-700/10 rounded-full blur-[110px] pointer-events-none" />
             <div className="absolute bottom-0 right-[15%] w-[260px] h-[260px]
         bg-teal-700/8 rounded-full blur-[80px] pointer-events-none" />
 
             {/* ── 2-column centered grid ── */}
             <div
                 className="relative z-10 w-full max-w-6xl px-6 lg:px-12
-          grid grid-cols-1 lg:grid-cols-2 gap-16 items-center justify-center
-          pt-24 pb-52 sm:pt-32 sm:pb-64"
+          grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center justify-center
+          pt-20 pb-32 sm:pt-24 sm:pb-52 md:pt-32 md:pb-64"
                 style={{ margin: "0 auto" }}
             >
                 {/* LEFT — Text block */}
@@ -78,8 +78,8 @@ export default function QuantumCatSection() {
                         The Quantum Paradox
                     </span>
 
-                    <h2 className="cat-reveal opacity-0 text-5xl lg:text-6xl xl:text-[4.2rem] font-black
-            text-white leading-[1.1] mb-8">
+                    <h2 className="cat-reveal opacity-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.2rem] font-black
+            text-white leading-[1.1] mb-6 sm:mb-8">
                         Is the cat{" "}
                         <span
                             className="text-transparent bg-clip-text
@@ -90,13 +90,13 @@ export default function QuantumCatSection() {
                         </span>
                     </h2>
 
-                    <p className="cat-reveal opacity-0 text-slate-200 text-2xl leading-[1.85] mb-6">
+                    <p className="cat-reveal opacity-0 text-slate-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed sm:leading-[1.85] mb-4 sm:mb-6">
                         Schrödinger's cat sits in a superposition of both states until observed.
                         Quantum computing harnesses this very principle — qubits exist as 0 and 1
                         simultaneously, unlocking computational power far beyond classical limits.
                     </p>
 
-                    <p className="cat-reveal opacity-0 text-slate-400 text-xl leading-[1.85] mb-10">
+                    <p className="cat-reveal opacity-0 text-slate-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed sm:leading-[1.85] mb-8 sm:mb-10">
                         At Qiskit Fall Fest, you'll explore quantum gates, circuits, and algorithms
                         that exploit superposition, entanglement, and interference — the building
                         blocks of the quantum revolution.
@@ -116,9 +116,9 @@ export default function QuantumCatSection() {
                 </div>
 
                 {/* RIGHT — Static cat image */}
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center w-full max-w-full px-0 sm:px-2">
                     <motion.div
-                        className="relative cursor-pointer"
+                        className="relative cursor-pointer w-full max-w-[min(100%,28rem)] sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto"
                         onHoverStart={() => setHovered(true)}
                         onHoverEnd={() => setHovered(false)}
                         whileHover={{ scale: 1.04 }}
@@ -147,7 +147,7 @@ export default function QuantumCatSection() {
                                 alt="Schrödinger's Quantum Cat"
                                 width={900}
                                 height={900}
-                                className="rounded-2xl object-cover shadow-2xl w-[700px] h-[700px]"
+                                className="rounded-2xl object-cover shadow-2xl w-full h-auto aspect-square max-h-[min(90vw,28rem)] sm:max-h-none"
                                 draggable={false}
                                 loading="eager"
                             />

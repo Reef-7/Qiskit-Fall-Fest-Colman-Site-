@@ -137,13 +137,12 @@ export default function RegistrationForm() {
     return (
         <section
             id="register"
-            className="relative pt-24 pb-32 sm:pt-36 sm:pb-48 bg-[#07071a] quantum-grid overflow-hidden"
-            style={{ scrollMarginTop: "260px" }}
+            className="relative pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-36 md:pb-48 bg-[#07071a] quantum-grid overflow-hidden scroll-mt-24 sm:scroll-mt-32 md:scroll-mt-52 lg:scroll-mt-64"
         >
             {/* Glows */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[380px]
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[900px] h-[200px] sm:h-[380px]
                 bg-violet-800/12 rounded-full blur-[130px] pointer-events-none" />
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[220px]
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[700px] h-[120px] sm:h-[220px]
                 bg-teal-800/10 rounded-full blur-[110px] pointer-events-none" />
 
             {/* Outer wrapper */}
@@ -163,13 +162,13 @@ export default function RegistrationForm() {
                         text-violet-400 text-base font-bold uppercase tracking-widest">
                         Free Registration
                     </span>
-                    <h2 className="text-5xl sm:text-6xl font-black text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
                         Join the{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-teal-400">
                             Quantum Leap
                         </span>
                     </h2>
-                    <p className="text-slate-400 text-xl">Registration is free. Seats are limited.</p>
+                    <p className="text-slate-400 text-base sm:text-lg md:text-xl">Registration is free. Seats are limited.</p>
                 </motion.div>
 
                 {/* Two-column: form left, map right */}
@@ -179,14 +178,14 @@ export default function RegistrationForm() {
                     <div className="flex flex-col items-center w-full">
 
                         {/* Step wizard */}
-                        <div className="flex items-start justify-center w-full mb-10">
+                        <div className="flex items-start justify-center w-full max-w-full mb-8 sm:mb-10 overflow-x-auto pb-1">
                             {steps.map((s, i) => {
                                 const Icon = s.icon;
                                 const done = step > i;
                                 const active = step === i;
                                 return (
-                                    <div key={s.id} className="flex items-center">
-                                        <div className="flex flex-col items-center gap-2">
+                                    <div key={s.id} className="flex items-center shrink-0">
+                                        <div className="flex flex-col items-center gap-1.5 sm:gap-2">
                                             <motion.div
                                                 animate={{
                                                     background: done
@@ -199,19 +198,20 @@ export default function RegistrationForm() {
                                                         : "rgba(255,255,255,0.12)",
                                                     scale: active ? 1.25 : 1,
                                                 }}
-                                                className="w-20 h-20 rounded-full border-2 flex items-center justify-center transition-all shadow-lg"
+                                                className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full border-2 flex items-center justify-center transition-all shadow-lg"
                                             >
-                                                {done
-                                                    ? <Check size={28} className="text-white" strokeWidth={2.5} />
-                                                    : <Icon size={28} className={active ? "text-violet-300" : "text-slate-600"} />
-                                                }
+                                                {done ? (
+                                                    <Check className="text-white w-5 h-5 sm:w-7 sm:h-7" strokeWidth={2.5} />
+                                                ) : (
+                                                    <Icon className={`w-5 h-5 sm:w-7 sm:h-7 ${active ? "text-violet-300" : "text-slate-600"}`} />
+                                                )}
                                             </motion.div>
-                                            <span className={`text-base font-bold tracking-wide ${active ? "text-violet-300" : done ? "text-teal-400" : "text-slate-600"}`}>
+                                            <span className={`text-xs sm:text-base font-bold tracking-wide ${active ? "text-violet-300" : done ? "text-teal-400" : "text-slate-600"}`}>
                                                 {s.label}
                                             </span>
                                         </div>
                                         {i < steps.length - 1 && (
-                                            <div className={`mx-6 mb-10 h-0.5 rounded-full transition-all duration-500 w-24 sm:w-32
+                                            <div className={`mx-2 sm:mx-4 md:mx-6 mb-8 sm:mb-10 h-0.5 rounded-full transition-all duration-500 w-10 sm:w-24 md:w-32
                                                 ${step > i ? "bg-gradient-to-r from-violet-500 to-teal-500" : "bg-white/10"}`}
                                             />
                                         )}
@@ -224,7 +224,7 @@ export default function RegistrationForm() {
                         <div className="relative w-full rounded-2xl overflow-hidden
                             bg-slate-900/90 border border-purple-500/20
                             shadow-2xl shadow-violet-900/30 backdrop-blur-md
-                            p-10 sm:p-14 min-h-[320px]">
+                            p-6 sm:p-10 md:p-14 min-h-[280px] sm:min-h-[320px]">
 
                             {/* Top shimmer line */}
                             <div className="absolute top-0 inset-x-0 h-px
@@ -274,7 +274,7 @@ export default function RegistrationForm() {
                                             </div>
                                             <div className="text-white font-black text-xl mb-1">Qiskit Fall Fest 2026</div>
                                             <div className="text-slate-400 text-sm mb-5">The College of Management</div>
-                                            <div className="grid grid-cols-2 gap-4 text-sm">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                                                 {[
                                                     { label: "Attendee", value: formData.name, cls: "text-white" },
                                                     { label: "Level", value: formData.level, cls: "text-teal-400 capitalize" },
@@ -372,27 +372,28 @@ export default function RegistrationForm() {
 
                             {/* Nav buttons */}
                             {!submitted && (
-                                <div className="flex items-center justify-between mt-12 pt-8 border-t border-white/8">
+                                <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/8">
                                     {step > 0 ? (
                                         <button
                                             onClick={back}
-                                            className="px-8 py-4 rounded-xl text-lg font-semibold text-slate-400
+                                            className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold text-slate-400
                                                 border border-white/12 hover:border-white/28 hover:text-slate-200 transition-all"
                                         >
                                             ← Back
                                         </button>
-                                    ) : <div />}
+                                    ) : <div className="hidden sm:block" />}
                                     <motion.button
                                         onClick={next}
                                         whileHover={{ scale: 1.05, boxShadow: "0 0 32px rgba(139,92,246,0.6)" }}
                                         whileTap={{ scale: 0.97 }}
-                                        className="flex items-center gap-3 px-12 py-5 rounded-xl font-bold text-white
-                                            text-lg bg-gradient-to-r from-violet-600 to-teal-500
+                                        className="flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-12 py-4 sm:py-5 rounded-xl font-bold text-white
+                                            text-sm sm:text-lg bg-gradient-to-r from-violet-600 to-teal-500
                                             hover:from-violet-500 hover:to-teal-400
-                                            shadow-lg transition-all duration-300"
+                                            shadow-lg transition-all duration-300 w-full sm:w-auto"
                                     >
-                                        {step === 2 ? "Submit & Collapse Wave Function" : "Continue"}
-                                        <ChevronRight size={24} />
+                                        <span className="sm:hidden">{step === 2 ? "Submit" : "Continue"}</span>
+                                        <span className="hidden sm:inline">{step === 2 ? "Submit & Collapse Wave Function" : "Continue"}</span>
+                                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
                                     </motion.button>
                                 </div>
                             )}
@@ -412,6 +413,7 @@ export default function RegistrationForm() {
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.6749016574486!2d34.77457892413425!3d31.96971522480401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b3f5eb44e1c1%3A0xfbe9b8c6bce59319!2z15TXnteh15zXldecINeU15DXp9eT157XmSDXlNee15vXnNec15Qg15zXnteZ16DXlNec!5e0!3m2!1siw!2sil!4v1786113261639!5m2!1siw!2sil"
                                 width="100%"
                                 height="450"
+                                className="w-full h-56 sm:h-72 md:h-[450px]"
                                 style={{ border: 0, display: "block" }}
                                 allowFullScreen
                                 loading="lazy"

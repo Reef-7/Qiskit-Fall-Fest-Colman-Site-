@@ -22,7 +22,13 @@ export default function Navbar() {
         return unsub;
     }, [scrollY]);
 
-    const navHeight = scrolled ? "160px" : "260px";
+    const navBarHeight = scrolled
+        ? "h-[4.5rem] sm:h-20 md:h-28"
+        : "h-[5.5rem] sm:h-28 md:h-36 lg:h-52 xl:h-[260px]";
+
+    const logoHeight = scrolled
+        ? "h-10 sm:h-12 md:h-14"
+        : "h-12 sm:h-16 md:h-24 lg:h-36 xl:h-60";
 
     return (
         <motion.header
@@ -39,18 +45,16 @@ export default function Navbar() {
             }}
         >
             <div
-                className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center"
-                style={{ height: navHeight, transition: "height 0.4s ease" }}
+                className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center transition-[height] duration-300 ease-out ${navBarHeight}`}
             >
                 {/* Logo — large, prominent */}
-                <motion.a href="https://www.colman.ac.il" target="_blank" rel="noopener noreferrer" style={{ scale: logoScale }} className="flex items-center shrink-0 mr-16">
+                <motion.a href="https://www.colman.ac.il" target="_blank" rel="noopener noreferrer" style={{ scale: logoScale }} className="flex items-center shrink-0 mr-3 sm:mr-8 lg:mr-16 min-w-0">
                     <Image
                         src="/colman-logo.jpg"
                         alt="College of Management"
                         width={320}
                         height={92}
-                        className="object-contain rounded"
-                        style={{ width: "auto", height: "240px", maxHeight: "240px" }}
+                        className={`object-contain rounded w-auto max-w-[min(100%,280px)] transition-all duration-300 ${logoHeight}`}
                         priority
                     />
                 </motion.a>
@@ -61,7 +65,7 @@ export default function Navbar() {
                         <a
                             key={link.label}
                             href={link.href}
-                            className={`relative px-8 py-4 text-xl font-black tracking-wide
+                            className={`relative px-5 lg:px-8 py-3 lg:py-4 text-base lg:text-xl font-black tracking-wide
                 transition-colors duration-200 group
                 ${scrolled ? "text-slate-100 hover:text-white" : "text-slate-900 hover:text-slate-700"}`}
                         >
@@ -80,7 +84,7 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center ml-auto">
                     <a
                         href="#register"
-                        className="px-10 py-4 rounded-full text-xl font-black text-white
+                        className="px-6 lg:px-10 py-3 lg:py-4 rounded-full text-base lg:text-xl font-black text-white
               bg-gradient-to-r from-violet-600 to-teal-500
               hover:from-violet-500 hover:to-teal-400
               shadow-lg hover:shadow-violet-500/50

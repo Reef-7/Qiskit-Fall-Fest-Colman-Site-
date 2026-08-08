@@ -19,12 +19,11 @@ export default function AboutSection() {
         <section
             id="about"
             ref={ref}
-            className="relative py-24 sm:py-36 pb-48 sm:pb-64 bg-gradient-to-b from-white via-slate-50 to-slate-100 overflow-hidden"
-            style={{ scrollMarginTop: "260px" }}
+            className="relative py-16 sm:py-24 md:py-36 pb-32 sm:pb-48 md:pb-64 bg-gradient-to-b from-white via-slate-50 to-slate-100 overflow-hidden scroll-mt-24 sm:scroll-mt-32 md:scroll-mt-52 lg:scroll-mt-64"
         >
             {/* Blobs */}
-            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-violet-200/28 rounded-full blur-[130px] pointer-events-none -translate-x-1/2" />
-            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-teal-200/28 rounded-full blur-[110px] pointer-events-none translate-x-1/3" />
+            <div className="absolute top-0 left-0 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-violet-200/28 rounded-full blur-[130px] pointer-events-none -translate-x-1/2" />
+            <div className="absolute bottom-0 right-0 w-[220px] sm:w-[400px] h-[220px] sm:h-[400px] bg-teal-200/28 rounded-full blur-[110px] pointer-events-none translate-x-1/3" />
 
             {/* ── Centered balanced layout, capped at 6xl ── */}
             <div className="relative z-10 max-w-6xl px-6 lg:px-12 flex flex-col items-center justify-center gap-12 lg:gap-16 xl:gap-20 text-center"
@@ -41,7 +40,7 @@ export default function AboutSection() {
               bg-violet-100 text-violet-700 text-xs font-bold uppercase tracking-widest">
                         What is it?
                     </span>
-                    <h2 className="text-4xl sm:text-5xl font-black text-slate-900 leading-[1.1] mb-6">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 leading-[1.1] mb-6">
                         Where Quantum Meets{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-teal-500">
                             Community
@@ -76,24 +75,20 @@ export default function AboutSection() {
                     className="flex items-center justify-center"
                 >
                     {/* Fixed-size container so absolute rings don't shift layout */}
-                    <div className="relative flex items-center justify-center mx-auto"
-                        style={{ width: 420, height: 420 }}>
+                    <div className="relative flex items-center justify-center mx-auto w-full max-w-[min(100%,420px)] aspect-square">
                         {/* Radial glow */}
-                        <div className="absolute rounded-full
+                        <div className="absolute inset-[5%] rounded-full
                 bg-gradient-to-br from-violet-400/35 via-teal-300/20 to-transparent
-                blur-[80px] pointer-events-none"
-                            style={{ width: 380, height: 380 }} />
+                blur-[80px] pointer-events-none" />
 
                         {/* Orbiting rings */}
                         <motion.div
-                            className="absolute rounded-full border-2 border-dashed border-violet-300/35"
-                            style={{ width: 320, height: 320 }}
+                            className="absolute inset-[12%] rounded-full border-2 border-dashed border-violet-300/35"
                             animate={{ rotate: 360 }}
                             transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
                         />
                         <motion.div
-                            className="absolute rounded-full border border-teal-300/20"
-                            style={{ width: 400, height: 400 }}
+                            className="absolute inset-0 rounded-full border border-teal-300/20"
                             animate={{ rotate: -360 }}
                             transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
                         />
@@ -109,7 +104,7 @@ export default function AboutSection() {
                                 alt="Bloch Sphere"
                                 width={300}
                                 height={300}
-                                className="object-contain w-[240px] sm:w-[280px] xl:w-[300px] drop-shadow-2xl"
+                                className="object-contain w-[58%] sm:w-[65%] max-w-[300px] drop-shadow-2xl"
                             />
                         </motion.div>
 
@@ -117,7 +112,7 @@ export default function AboutSection() {
                         <motion.div
                             animate={{ y: [0, -18, 0] }}
                             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-                            className="absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap
+                            className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 max-w-[90%] text-center whitespace-normal sm:whitespace-nowrap
                   px-4 py-1.5 rounded-full text-xs font-bold text-white
                   bg-gradient-to-r from-violet-600/90 to-teal-500/90 shadow-lg"
                         >
@@ -131,7 +126,7 @@ export default function AboutSection() {
                     initial={{ opacity: 0, y: 28 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.7, delay: 0.2 }}
-                    className="grid grid-cols-2 gap-4 max-w-md mx-auto"
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full max-w-md mx-auto"
                 >
                     {highlights.map((h, i) => (
                         <motion.div

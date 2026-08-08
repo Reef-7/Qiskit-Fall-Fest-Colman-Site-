@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: "Qiskit Fall Fest 2026 | The College of Management",
   description:
     "Join us for Qiskit Fall Fest 2026 — a quantum computing event hosted by The College of Management. Workshops, speakers, and hands-on labs.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
