@@ -80,8 +80,20 @@ export default function Navbar() {
                     ))}
                 </nav>
 
+                {/* Qiskit Fall Fest logo — right side */}
+                <motion.div style={{ scale: logoScale }} className="hidden md:flex items-center shrink-0 ml-3 sm:ml-6 lg:ml-10 min-w-0">
+                    <Image
+                        src="/Qiskit Fall Fest 2026 Black.png"
+                        alt="Qiskit Fall Fest 2026"
+                        width={320}
+                        height={92}
+                        className={`object-contain rounded w-auto max-w-[min(100%,280px)] transition-all duration-300 ${logoHeight}`}
+                        priority
+                    />
+                </motion.div>
+
                 {/* CTA — right */}
-                <div className="hidden md:flex items-center ml-auto">
+                <div className="hidden md:flex items-center ml-3 sm:ml-6 lg:ml-8">
                     <a
                         href="#register"
                         className="px-6 lg:px-10 py-3 lg:py-4 rounded-full text-base lg:text-xl font-black text-white
