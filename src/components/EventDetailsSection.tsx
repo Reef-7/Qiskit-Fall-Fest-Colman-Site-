@@ -4,11 +4,11 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const agenda = [
-    { time: "14:00", title: "Gathering & Refreshments", desc: "Arrival, networking, and welcome refreshments.", tag: "Opening", color: "teal" },
-    { time: "14:30", title: "Opening Keynote & Quantum Innovation Overview", desc: "A grounding in quantum mechanics fundamentals and the shift from the first to the second quantum revolution. A vision for quantum computing in 2026 and what it means for the next generation.", tag: "Keynote", color: "violet" },
-    { time: "16:00", title: "Deep Dive: Quantum Computing with Qiskit", desc: "Explore the fundamentals of quantum circuits, gates, and the Qiskit framework.", tag: "Talk", color: "blue" },
+    { time: "16:00", title: "Gathering & Refreshments", desc: "Arrival, networking, and welcome refreshments.", tag: "Opening", color: "teal" },
+    { time: "16:15", title: "Opening & Intro", desc: "Welcome remarks and an introduction to the day's program.", tag: "Opening", color: "teal" },
+    { time: "16:30", title: "Opening Keynote: Quantum Innovation Overview", desc: "A grounding in quantum mechanics fundamentals and the shift from the first to the second quantum revolution. A vision for quantum computing in 2026 and what it means for the next generation.", tag: "Keynote", color: "violet" },
     { time: "17:30", title: "Networking & Short Break", desc: "Connect with fellow attendees, speakers, and the quantum community.", tag: "Break", color: "teal" },
-    { time: "17:45", title: "Hands-On Quantum Practical Workshop", desc: "Build and run your first quantum circuits in a guided lab environment.", tag: "Workshop", color: "violet" },
+    { time: "17:45", title: "Hands-On Quantum Practical Workshop (The Qiskit Framework)", desc: "Build and run your first quantum circuits in a guided lab environment using the Qiskit SDK.", tag: "Workshop", color: "violet" },
     { time: "19:00", title: "Closing Remarks & Community Hub", desc: "Key takeaways, community announcements, and an open space to connect and collaborate.", tag: "Closing", color: "blue" },
 ];
 

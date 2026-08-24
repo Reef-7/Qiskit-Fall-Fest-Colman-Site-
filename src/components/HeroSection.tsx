@@ -99,7 +99,7 @@ export default function HeroSection() {
           bg-white/65 backdrop-blur-sm border border-slate-200/90 shadow-sm">
                     <span className="text-violet-600 text-2xl sm:text-3xl shrink-0">📅</span>
                     <span className="text-slate-800 text-sm sm:text-xl md:text-2xl font-black leading-snug">
-                        October 2026 · College of Management · Rishon LeZion, Israel
+                        October 13, 2026 · College of Management · Rishon LeZion, Israel
                     </span>
                 </div>
             </div>

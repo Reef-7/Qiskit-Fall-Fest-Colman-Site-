@@ -279,7 +279,7 @@ export default function RegistrationForm() {
                                                     { label: "Attendee", value: formData.name, cls: "text-white" },
                                                     { label: "Level", value: formData.level, cls: "text-teal-400 capitalize" },
                                                     { label: "Institution", value: formData.institution, cls: "text-white" },
-                                                    { label: "Date", value: "Oct 2026 · Rishon LeZion", cls: "text-violet-400" },
+                                                    { label: "Date", value: "Oct 13, 2026 · Rishon LeZion", cls: "text-violet-400" },
                                                 ].map((item) => (
                                                     <div key={item.label}>
                                                         <div className="text-slate-500 text-xs mb-0.5">{item.label}</div>
