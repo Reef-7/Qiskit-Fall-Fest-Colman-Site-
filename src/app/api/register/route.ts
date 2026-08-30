@@ -3,6 +3,13 @@ import nodemailer from 'nodemailer';
 
 // Create Gmail transporter - requires GMAIL_USER and GMAIL_APP_PASSWORD environment variables
 const createTransporter = () => {
+  console.log('Environment check:', {
+    hasUser: !!process.env.GMAIL_USER,
+    hasPassword: !!process.env.GMAIL_APP_PASSWORD,
+    userLength: process.env.GMAIL_USER?.length,
+    passwordLength: process.env.GMAIL_APP_PASSWORD?.length
+  });
+  
   if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
     return null;
   }
