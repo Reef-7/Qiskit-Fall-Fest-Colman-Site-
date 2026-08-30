@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-// Create Gmail transporter
+// Create Gmail transporter - requires GMAIL_USER and GMAIL_APP_PASSWORD environment variables
 const createTransporter = () => {
   if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
     return null;
