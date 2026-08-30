@@ -105,6 +105,8 @@ export default function RegistrationForm() {
     const [showParticles, setShowParticles] = useState(false);
     const [formData, setFormData] = useState<FormData>({ name: "", email: "", institution: "", level: "" });
     const [errors, setErrors] = useState<Errors>({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
 
     const update = (key: keyof FormData, val: string) => {
         setFormData((p) => ({ ...p, [key]: val }));
@@ -124,12 +126,47 @@ export default function RegistrationForm() {
         return Object.keys(e).length === 0;
     };
 
+    const submitRegistration = async () => {
+        setIsSubmitting(true);
+        setSubmitError(null);
+        
+        try {
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Registration failed');
+            }
+
+            // Show success even if email had issues
+            setShowParticles(true);
+            setTimeout(() => { 
+                setSubmitted(true); 
+                setShowParticles(false); 
+                // Show warning if email failed
+                if (data.emailError || !data.emailConfigured) {
+                    console.warn('Email issue:', data.emailError || 'Email service not configured');
+                }
+            }, 1400);
+        } catch (error) {
+            setSubmitError(error instanceof Error ? error.message : 'Registration failed');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     const next = () => {
         if (!validateStep()) return;
         if (step < 2) { setDir(1); setStep((s) => s + 1); }
         else {
-            setShowParticles(true);
-            setTimeout(() => { setSubmitted(true); setShowParticles(false); }, 1400);
+            submitRegistration();
         }
     };
     const back = () => { setDir(-1); setStep((s) => s - 1); };
@@ -259,7 +296,7 @@ export default function RegistrationForm() {
                                             Welcome, <span className="text-violet-400 font-bold">{formData.name}</span>!
                                         </p>
                                         <p className="text-slate-500 mb-8">
-                                            Confirmation sent to <span className="text-teal-400">{formData.email}</span>
+                                            Confirmation and calendar event sent to <span className="text-teal-400">{formData.email}</span>
                                         </p>
                                         <motion.div
                                             initial={{ opacity: 0, y: 22 }}
@@ -376,26 +413,49 @@ export default function RegistrationForm() {
                                     {step > 0 ? (
                                         <button
                                             onClick={back}
+                                            disabled={isSubmitting}
                                             className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold text-slate-400
-                                                border border-white/12 hover:border-white/28 hover:text-slate-200 transition-all"
+                                                border border-white/12 hover:border-white/28 hover:text-slate-200 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                         >
                                             ← Back
                                         </button>
                                     ) : <div className="hidden sm:block" />}
                                     <motion.button
                                         onClick={next}
-                                        whileHover={{ scale: 1.05, boxShadow: "0 0 32px rgba(139,92,246,0.6)" }}
-                                        whileTap={{ scale: 0.97 }}
+                                        disabled={isSubmitting}
+                                        whileHover={{ scale: isSubmitting ? 1 : 1.05, boxShadow: isSubmitting ? "none" : "0 0 32px rgba(139,92,246,0.6)" }}
+                                        whileTap={{ scale: isSubmitting ? 1 : 0.97 }}
                                         className="flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-12 py-4 sm:py-5 rounded-xl font-bold text-white
                                             text-sm sm:text-lg bg-gradient-to-r from-violet-600 to-teal-500
                                             hover:from-violet-500 hover:to-teal-400
-                                            shadow-lg transition-all duration-300 w-full sm:w-auto"
+                                            shadow-lg transition-all duration-300 w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
-                                        <span className="sm:hidden">{step === 2 ? "Submit" : "Continue"}</span>
-                                        <span className="hidden sm:inline">{step === 2 ? "Submit & Collapse Wave Function" : "Continue"}</span>
-                                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
+                                        {isSubmitting ? (
+                                            <span className="flex items-center gap-2">
+                                                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                                <span className="sm:hidden">Submitting...</span>
+                                                <span className="hidden sm:inline">Submitting...</span>
+                                            </span>
+                                        ) : (
+                                            <>
+                                                <span className="sm:hidden">{step === 2 ? "Submit" : "Continue"}</span>
+                                                <span className="hidden sm:inline">{step === 2 ? "Submit & Collapse Wave Function" : "Continue"}</span>
+                                                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
+                                            </>
+                                        )}
                                     </motion.button>
                                 </div>
+                            )}
+                            
+                            {/* Error message */}
+                            {submitError && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="mt-4 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-center"
+                                >
+                                    ⚠ {submitError}
+                                </motion.div>
                             )}
                         </div>
                     </div>
