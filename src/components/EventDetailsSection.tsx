@@ -41,7 +41,7 @@ export default function EventDetailsSection() {
         <section
             ref={sectionRef}
             id="agenda"
-            className="relative pt-16 pb-40 sm:pt-24 sm:pb-64 md:pt-36 md:pb-80 bg-[#0a0a1a] quantum-grid overflow-hidden w-full scroll-mt-24 sm:scroll-mt-32 md:scroll-mt-52 lg:scroll-mt-64 text-center"
+            className="relative pt-16 pb-40 sm:pt-24 sm:pb-64 md:pt-36 md:pb-80 bg-[#0a0a1a] quantum-grid overflow-hidden w-full scroll-mt-28 sm:scroll-mt-32 md:scroll-mt-36 text-center"
         >
             {/* Centered glows */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[200px] sm:h-[400px]
@@ -119,7 +119,7 @@ export default function EventDetailsSection() {
                     initial={{ opacity: 0, y: 28 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.65, delay: 0.38 }}
-                    className="w-full max-w-3xl mx-auto text-center scroll-mt-24 sm:scroll-mt-32 md:scroll-mt-52 lg:scroll-mt-64"
+                    className="w-full max-w-3xl mx-auto text-center scroll-mt-28 sm:scroll-mt-32 md:scroll-mt-36"
                 >
                     <h3 className="text-3xl sm:text-4xl font-black text-white mb-5">
                         Hands-On{" "}

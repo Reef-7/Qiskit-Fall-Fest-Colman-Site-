@@ -23,12 +23,12 @@ export default function Navbar() {
     }, [scrollY]);
 
     const navBarHeight = scrolled
-        ? "h-[4.5rem] sm:h-20 md:h-28"
-        : "h-[5.5rem] sm:h-28 md:h-36 lg:h-52 xl:h-[260px]";
+        ? "h-24 sm:h-28"
+        : "h-28 sm:h-32 md:h-36";
 
     const logoHeight = scrolled
-        ? "h-10 sm:h-12 md:h-14"
-        : "h-12 sm:h-16 md:h-24 lg:h-36 xl:h-60";
+        ? "h-[5.25rem] sm:h-24"
+        : "h-24 sm:h-[6.75rem] md:h-[7.5rem]";
 
     return (
         <motion.header
@@ -45,34 +45,39 @@ export default function Navbar() {
             }}
         >
             <div
-                className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center transition-[height] duration-300 ease-out ${navBarHeight}`}
+                className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-4 transition-[height] duration-300 ease-out ${navBarHeight}`}
             >
-                {/* Logo — large, prominent */}
-                <motion.a href="https://www.colman.ac.il" target="_blank" rel="noopener noreferrer" style={{ scale: logoScale }} className="flex items-center shrink-0 mr-3 sm:mr-8 lg:mr-16 min-w-0">
+                {/* College logo — left */}
+                <motion.a
+                    href="https://www.colman.ac.il"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ scale: logoScale }}
+                    className="flex items-center justify-start shrink-0 min-w-0"
+                >
                     <Image
                         src="/colman-logo.jpg"
                         alt="College of Management"
-                        width={320}
-                        height={92}
-                        className={`object-contain rounded w-auto max-w-[min(100%,280px)] transition-all duration-300 ${logoHeight}`}
+                        width={600}
+                        height={174}
+                        className={`object-contain rounded w-auto max-w-[360px] sm:max-w-[420px] md:max-w-[480px] transition-all duration-300 ${logoHeight}`}
                         priority
                     />
                 </motion.a>
 
-                {/* Desktop nav — centered in remaining space */}
-                <nav className="hidden md:flex items-center justify-center flex-1 gap-3">
+                {/* Desktop nav — centered */}
+                <nav className="hidden md:flex items-center justify-center gap-1 lg:gap-2">
                     {navLinks.map((link) => (
                         <a
                             key={link.label}
                             href={link.href}
-                            className={`relative px-5 lg:px-8 py-3 lg:py-4 text-base lg:text-xl font-black tracking-wide
+                            className={`relative px-4 lg:px-6 py-2.5 lg:py-3 text-sm lg:text-base font-black tracking-wide
                 transition-colors duration-200 group
                 ${scrolled ? "text-slate-100 hover:text-white" : "text-slate-900 hover:text-slate-700"}`}
                         >
                             {link.label}
-                            {/* Neon underline slide-in */}
                             <span
-                                className="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-0 rounded-full
+                                className="absolute bottom-0.5 left-1/2 -translate-x-1/2 h-0.5 w-0 rounded-full
                   bg-gradient-to-r from-violet-500 to-teal-400
                   group-hover:w-4/5 transition-all duration-300"
                             />
@@ -80,23 +85,21 @@ export default function Navbar() {
                     ))}
                 </nav>
 
-                {/* Qiskit Fall Fest logo — right side */}
-                <motion.div style={{ scale: logoScale }} className="hidden md:flex items-center shrink-0 ml-3 sm:ml-6 lg:ml-10 min-w-0">
-                    <Image
-                        src="/Qiskit Fall Fest 2026 Black.png"
-                        alt="Qiskit Fall Fest 2026"
-                        width={320}
-                        height={92}
-                        className={`object-contain rounded w-auto max-w-[min(100%,280px)] transition-all duration-300 ${logoHeight}`}
-                        priority
-                    />
-                </motion.div>
-
-                {/* CTA — right */}
-                <div className="hidden md:flex items-center ml-3 sm:ml-6 lg:ml-8">
+                {/* Qiskit logo + CTA — right */}
+                <div className="hidden md:flex items-center justify-end gap-3 lg:gap-4 min-w-0">
+                    <motion.div style={{ scale: logoScale }} className="flex items-center shrink-0 min-w-0">
+                        <Image
+                            src="/Qiskit Fall Fest 2026 Black.png"
+                            alt="Qiskit Fall Fest 2026"
+                            width={600}
+                            height={174}
+                            className={`object-contain rounded w-auto max-w-[360px] sm:max-w-[420px] md:max-w-[480px] transition-all duration-300 ${logoHeight}`}
+                            priority
+                        />
+                    </motion.div>
                     <a
                         href="#register"
-                        className="px-6 lg:px-10 py-3 lg:py-4 rounded-full text-base lg:text-xl font-black text-white
+                        className="shrink-0 px-5 lg:px-7 py-2.5 lg:py-3 rounded-full text-sm lg:text-base font-black text-white
               bg-gradient-to-r from-violet-600 to-teal-500
               hover:from-violet-500 hover:to-teal-400
               shadow-lg hover:shadow-violet-500/50
@@ -108,7 +111,7 @@ export default function Navbar() {
 
                 {/* Mobile toggle */}
                 <button
-                    className={`md:hidden ml-auto p-2 rounded-lg transition-colors
+                    className={`md:hidden col-start-3 justify-self-end p-2 rounded-lg transition-colors
             ${scrolled ? "text-white" : "text-slate-800"}`}
                     onClick={() => setMobileOpen(!mobileOpen)}
                     aria-label="Toggle menu"

@@ -174,7 +174,7 @@ export default function RegistrationForm() {
     return (
         <section
             id="register"
-            className="relative pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-36 md:pb-48 bg-[#07071a] quantum-grid overflow-hidden scroll-mt-24 sm:scroll-mt-32 md:scroll-mt-52 lg:scroll-mt-64"
+            className="relative pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-36 md:pb-48 bg-[#07071a] quantum-grid overflow-hidden scroll-mt-28 sm:scroll-mt-32 md:scroll-mt-36"
         >
             {/* Glows */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[900px] h-[200px] sm:h-[380px]

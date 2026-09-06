@@ -19,7 +19,7 @@ export default function AboutSection() {
         <section
             id="about"
             ref={ref}
-            className="relative py-16 sm:py-24 md:py-36 pb-32 sm:pb-48 md:pb-64 bg-gradient-to-b from-white via-slate-50 to-slate-100 overflow-hidden scroll-mt-24 sm:scroll-mt-32 md:scroll-mt-52 lg:scroll-mt-64"
+            className="relative py-16 sm:py-24 md:py-36 pb-32 sm:pb-48 md:pb-64 bg-gradient-to-b from-white via-slate-50 to-slate-100 overflow-hidden scroll-mt-28 sm:scroll-mt-32 md:scroll-mt-36"
         >
             {/* Blobs */}
             <div className="absolute top-0 left-0 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-violet-200/28 rounded-full blur-[130px] pointer-events-none -translate-x-1/2" />

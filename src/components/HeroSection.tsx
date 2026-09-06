@@ -59,24 +59,24 @@ export default function HeroSection() {
                 <div className="absolute bottom-0 inset-x-0 h-64 bg-gradient-to-b from-transparent via-white/55 to-white pointer-events-none" />
             </div>
 
-            {/* Overlay CTAs — large, centered, prominently sized */}
-            <div className="absolute inset-x-0 bottom-[4%] sm:bottom-[8%] md:bottom-[12%] z-20
-        flex flex-col items-center gap-4 sm:gap-6 px-4 sm:px-6 text-center max-w-full">
+            {/* Overlay CTAs — centered above bottom fade */}
+            <div className="absolute bottom-[8%] sm:bottom-[10%] md:bottom-[12%] left-1/2 -translate-x-1/2 z-20
+        flex flex-col items-center gap-4 sm:gap-5 px-4 sm:px-6 text-center w-full max-w-3xl">
 
                 {/* Hosted-by badge */}
-                <div className="hero-badge opacity-0 inline-flex items-center gap-2 sm:gap-4 px-4 sm:px-8 py-2.5 sm:py-4 rounded-full max-w-[calc(100vw-2rem)]
+                <div className="hero-badge opacity-0 inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full max-w-[calc(100vw-2rem)]
           bg-white/75 backdrop-blur-sm border border-violet-300/70 shadow-md">
-                    <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-violet-500 animate-pulse shrink-0" />
-                    <span className="text-violet-900 text-xs sm:text-lg md:text-xl font-black uppercase tracking-wide sm:tracking-widest">
+                    <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-violet-500 animate-pulse shrink-0" />
+                    <span className="text-violet-900 text-xs sm:text-sm md:text-base font-black uppercase tracking-wide sm:tracking-widest">
                         Hosted by The College of Management
                     </span>
                 </div>
 
                 {/* CTA buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-stretch sm:items-center w-full max-w-md sm:max-w-none">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full">
                     <a
                         href="#register"
-                        className="hero-cta opacity-0 px-8 sm:px-14 py-4 sm:py-6 rounded-full text-white font-black text-lg sm:text-2xl text-center
+                        className="hero-cta opacity-0 px-7 sm:px-10 py-3.5 sm:py-4 rounded-full text-white font-black text-base sm:text-lg text-center
               bg-gradient-to-r from-violet-600 to-teal-500
               hover:from-violet-500 hover:to-teal-400
               shadow-2xl hover:shadow-violet-500/55
@@ -86,7 +86,7 @@ export default function HeroSection() {
                     </a>
                     <a
                         href="#about"
-                        className="hero-cta opacity-0 px-8 sm:px-14 py-4 sm:py-6 rounded-full font-black text-lg sm:text-2xl text-center text-slate-900
+                        className="hero-cta opacity-0 px-7 sm:px-10 py-3.5 sm:py-4 rounded-full font-black text-base sm:text-lg text-center text-slate-900
               border-2 border-slate-800/35 hover:border-violet-600 hover:text-violet-700
               bg-white/55 backdrop-blur-sm transition-all duration-300 hover:scale-105"
                     >
@@ -95,10 +95,10 @@ export default function HeroSection() {
                 </div>
 
                 {/* Date / location pill */}
-                <div className="hero-date opacity-0 inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-5 sm:px-10 py-3 sm:py-5 rounded-2xl max-w-[calc(100vw-2rem)]
+                <div className="hero-date opacity-0 inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2.5 sm:py-4 rounded-2xl max-w-[calc(100vw-2rem)]
           bg-white/65 backdrop-blur-sm border border-slate-200/90 shadow-sm">
-                    <span className="text-violet-600 text-2xl sm:text-3xl shrink-0">📅</span>
-                    <span className="text-slate-800 text-sm sm:text-xl md:text-2xl font-black leading-snug">
+                    <span className="text-violet-600 text-xl sm:text-2xl shrink-0">📅</span>
+                    <span className="text-slate-800 text-xs sm:text-base md:text-lg font-black leading-snug">
                         October 13, 2026 · College of Management · Rishon LeZion, Israel
                     </span>
                 </div>

@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import CoOrganizedSection from "@/components/CoOrganizedSection";
 import AboutSection from "@/components/AboutSection";
 import QuantumCatSection from "@/components/QuantumCatSection";
 import EventDetailsSection from "@/components/EventDetailsSection";
@@ -11,6 +12,7 @@ export default function Home() {
     <main>
       <Navbar />
       <HeroSection />
+      <CoOrganizedSection />
       <AboutSection />
       {/* Spacer between About and Cat sections */}
       <div
