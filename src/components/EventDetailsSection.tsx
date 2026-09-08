@@ -128,9 +128,7 @@ export default function EventDetailsSection() {
                         </span>
                     </h3>
                     <p className="text-slate-300 max-w-2xl mb-10 text-lg leading-relaxed" style={{ margin: "0 auto 2.5rem" }}>
-                        Experience quantum computing in practice. Join our guided, interactive
-                        hands-on lab where you will build, simulate, and run your first quantum
-                        circuits using the Qiskit SDK.
+                        In this session, you will translate quantum mechanics into active Python scripts, connect directly to IBM&apos;s quantum processors in the cloud, and master the official workflow used by quantum engineers today. No physics major required – just your laptop and basic programming skills.
                     </p>
                     <a
                         href="#register"
