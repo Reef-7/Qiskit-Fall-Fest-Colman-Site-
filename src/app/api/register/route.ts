@@ -35,7 +35,7 @@ function generateICS(data: RegistrationData): string {
   const eventDate = new Date('2026-10-13T16:00:00');
   
   const startDate = new Date(eventDate);
-  startDate.setHours(16, 0, 0); // 4:00 PM
+  startDate.setHours(15, 0, 0); // 3:00 PM
   
   const endDate = new Date(eventDate);
   endDate.setHours(20, 0, 0); // 8:00 PM
@@ -56,7 +56,7 @@ function generateICS(data: RegistrationData): string {
     `DTSTAMP:${formatDate(new Date())}`,
     `UID:${Date.now()}@qiskit-fall-fest`,
     'SUMMARY:Qiskit Fall Fest - Quantum Computing Event',
-    'DESCRIPTION:Join us for an exciting day of quantum computing!\\n\\nEvent Details:\\n- Gathering & Refreshments: 16:00\\n- Opening Keynote: 16:30\\n- Hands-On Quantum Workshop: 17:45\\n- Closing Remarks: 19:00\\n\\nRegistered as: ' + data.name + '\\nInstitution: ' + data.institution + '\\nLevel: ' + data.level,
+    'DESCRIPTION:Join us for an exciting day of quantum computing!\\n\\nEvent Details:\\n- Gathering & Refreshments: 15:00\\n- Opening & Intro: 15:15\\n- Opening Keynote (Hebrew): 15:30\\n- IBM Quantum Guest Keynote (English): 16:30\\n- Hands-On Quantum Workshop: 17:45\\n- Closing Remarks: 19:00\\n\\nRegistered as: ' + data.name + '\\nInstitution: ' + data.institution + '\\nLevel: ' + data.level,
     'LOCATION:The College of Management, Rishon LeZion',
     'STATUS:CONFIRMED',
     'SEQUENCE:0',
@@ -144,7 +144,7 @@ export async function POST(request: NextRequest) {
                 <div class="event-details">
                   <h3>📅 Event Details</h3>
                   <p><strong>Date:</strong> October 13, 2026</p>
-                  <p><strong>Time:</strong> 4:00 PM - 8:00 PM</p>
+                  <p><strong>Time:</strong> 3:00 PM - 8:00 PM</p>
                   <p><strong>Location:</strong> The College of Management, Rishon LeZion</p>
                   <p><strong>Your Level:</strong> ${data.level}</p>
                   <p><strong>Institution:</strong> ${data.institution}</p>
