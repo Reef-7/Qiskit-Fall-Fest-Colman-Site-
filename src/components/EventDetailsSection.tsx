@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 
 const agenda = [
     { time: "15:00", title: "Gathering & Refreshments", desc: "Arrival, networking, and welcome refreshments.", tag: "Opening", color: "teal" },
-    { time: "15:15", title: "Opening & Intro", desc: "Welcome remarks and an introduction to the day's program.", tag: "Opening", color: "teal" },
+    { time: "15:15", title: "Opening & Intro", desc: "Welcome remarks and an introduction to the day's program.\nFeaturing Dr. Igor Rochlin, Dean of the Faculty of Computer Science - The College of Management Academic Studies.", tag: "Opening", color: "teal" },
     { time: "15:30", title: "Opening Keynote: Quantum Innovation Overview (Delivered in Hebrew)", desc: "A grounding in quantum mechanics fundamentals and the shift from the first to the second quantum revolution. A vision for quantum computing in 2026 and what it means for the next generation.", tag: "Keynote", color: "violet" },
     { time: "16:30", title: "IBM Quantum Keynote: Quantum & Qiskit 101 Seminar (Delivered in English)", desc: "Special Guest: Muhammad Faryad (IBM Quantum Advocate, Quantum Machine Learning Scientist, and Associate Professor at Lahore University of Management Sciences).\nBasics of quantum computing and Qiskit.", tag: "Guest Keynote", color: "violet" },
     { time: "17:30", title: "Networking & Short Break", desc: "Connect with fellow attendees, speakers, and the quantum community.", tag: "Break", color: "teal" },
